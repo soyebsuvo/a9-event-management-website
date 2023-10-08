@@ -4,7 +4,7 @@ export default function Navbar() {
     const links = <>
         <li className="text-lg"><NavLink to="/">Home</NavLink></li>
         <li className="text-lg"><NavLink to="/about">About</NavLink></li>
-        <li className="text-lg"><NavLink to="/service">Service</NavLink></li>
+        <li className="text-lg"><NavLink to="/services">Services</NavLink></li>
         <li className="text-lg font-bold"><NavLink to="/login">Login</NavLink></li>
     </>
     return (
@@ -19,7 +19,7 @@ export default function Navbar() {
                             {links}
                         </ul>
                     </div>
-                    <a className="cursor-pointer normal-case text-xl"><span className="text-2xl mb-1"><span className="font-bold text-[#FCB41E] text-3xl">S</span>ocial</span> <span className="text-sm mt-2">Eve<span className="underline">nts</span></span><sup className="text-[#FCB41E]">**</sup></a>
+                    <a className="cursor-pointer hover:decoration-neutral normal-case text-xl"><span className="text-2xl mb-1"><span className="font-bold text-[#FCB41E] text-3xl">S</span>ocial</span> <span className="text-sm mt-2">Eve<span className="underline">nts</span></span><sup className="text-[#FCB41E]">**</sup></a>
                 </div>
                 <div className="hidden md:flex">
                     <ul className="menu menu-horizontal px-1">

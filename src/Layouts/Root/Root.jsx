@@ -3,6 +3,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 import AOS from 'aos';
 AOS.init();
 import 'aos/dist/aos.css';
+import Footer from '../../Pages/Footer/Footer';
 
 export default function Root() {
     return (
@@ -11,6 +12,7 @@ export default function Root() {
                 <Navbar></Navbar>
             </div>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     )
 }
