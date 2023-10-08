@@ -4,6 +4,7 @@ import AOS from 'aos';
 AOS.init();
 import 'aos/dist/aos.css';
 import Footer from '../../Pages/Footer/Footer';
+import { Toaster } from 'react-hot-toast';
 
 export default function Root() {
     return (
@@ -13,6 +14,7 @@ export default function Root() {
             </div>
             <Outlet></Outlet>
             <Footer></Footer>
+            <Toaster></Toaster>
         </div>
     )
 }

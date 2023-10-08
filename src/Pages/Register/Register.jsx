@@ -5,6 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -15,14 +16,19 @@ export default function Register() {
         const name = form.get("name");
         const email = form.get("email");
         const password = form.get("password");
+        if(password.length < 6) {
+            toast.error("Your Password Must be at least 6 Charectors");
+        }
         console.log(name, email, password);
         createUser(email , password)
         .then(result => {
             console.log(result.user);
             navigate("/");
+            toast.success("successfuly Registered")
         })
         .catch(error => {
             console.error(error);
+
         })
     }
     return (

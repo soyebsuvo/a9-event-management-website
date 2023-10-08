@@ -2,11 +2,14 @@ import { NavLink } from "react-router-dom"
 import "./navbar.css"
 import { useContext } from "react"
 import { AuthContext } from "../AuthProvider/AuthProvider"
+import toast from "react-hot-toast";
 export default function Navbar() {
     const { user, logout } = useContext(AuthContext);
     const handleLogOut = () => {
         logout()
-            .then()
+            .then(()=> {
+                toast.success("successfuly logged out");
+            })
             .catch()
     }
     const links = <>

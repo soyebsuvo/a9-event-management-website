@@ -2,9 +2,12 @@
 import { useContext } from 'react';
 import { FaGithub } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 export default function Login() {
+    const location = useLocation();
+    console.log(location)
     const navigate = useNavigate()
     const { login, googleSignIn, githubSignIn } = useContext(AuthContext);
     const handleLogin = e => {
@@ -13,23 +16,31 @@ export default function Login() {
         const email = form.get("email");
         const password = form.get("password");
         console.log(email, password);
+        if(password.length < 6) {
+            toast.error("Your Password Must be at least 6 Charectors")
+            return;
+        }
         login(email, password)
             .then(res => {
                 console.log(res.user);
-                navigate("/")
+                navigate(location?.state ? location.state : "/")
+                toast.success("Successfuly Logged in");
             })
             .catch(err => {
                 console.error(err);
+                toast.error("Email Or Password Maybe Incorrect");
             })
     }
     const otherSignIn = media => {
         media()
             .then((res) => {
                 console.log(res.user);
-                navigate("/")
+                navigate(location?.state ? location.state : "/")
+                toast.success("successfuly logged in");
             })
             .catch()
     }
+  
     return (
         <div className="flex justify-center py-8">
             <div className="shadow-lg bg-base-200 p-5 w-96 mx-auto">
