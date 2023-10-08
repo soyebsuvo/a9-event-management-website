@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "event_type": "Wedding",
+      "testimonial_text": "Our wedding was a dream come true, thanks to Social Events Company! The attention to detail and the music selection were perfect. We'll cherish it forever.",
+      "image": "https://i.ibb.co/YdbGNLF/th.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Michael Smith",
+      "event_type": "Birthday Party",
+      "testimonial_text": "My 40th birthday party was a blast, all thanks to Social Events Company. The decorations and the photo booth added a fun touch. Memorable celebration!",
+      "image": "https://i.ibb.co/Zftw1YZ/th-1.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Emily and John",
+      "event_type": "Anniversary",
+      "testimonial_text": "Celebrating our 25th anniversary was special with Social Events Company. The dinner, live music, and decorations created a magical atmosphere. A night to remember!",
+      "image": "https://i.ibb.co/Gsbz8q0/th-2.jpg"
+    },
+    {
+      "id": 4,
+      "name": "David and Lisa",
+      "event_type": "Engagement Party",
+      "testimonial_text": "The engagement party they planned was perfect. The venue, food, and ambiance were romantic. Thanks, Social Events Company, for an unforgettable engagement!",
+      "image": "https://i.ibb.co/ZXHcBmz/th-3.jpg"
+    },
+    {
+      "id": 5,
+      "name": "James Anderson",
+      "event_type": "Retirement Party",
+      "testimonial_text": "Retirement should be relaxing, and Social Events Company made it so. The speeches, decorations, and entertainment were top-notch. A party to remember!",
+      "image": "https://i.ibb.co/Np010sz/th-4.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Sarah Walker",
+      "event_type": "Baby Shower",
+      "testimonial_text": "The baby shower they planned was adorable! The decorations and baby-themed cupcakes were a hit. A perfect day to welcome our little one!",
+      "image": "https://i.ibb.co/VqkJW9p/th-5.jpg"
+    }
+  ]
+  

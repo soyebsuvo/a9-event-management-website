@@ -6,8 +6,9 @@ export default function Service({ service }) {
     return (
         <div className='border border-[#FCB41E] rounded-2xl' data-aos="fade-up"
             data-aos-easing="linear"
-            data-aos-duration="900"
-            data-aos-anchor-placement="top-bottom">
+            data-aos-duration="700"
+            data-aos-anchor-placement="top-bottom"
+            data-aos-delay="400">
             <div className="card bg-base-100 shadow-xl relative space-y-4">
                 <figure><img className='h-[200px] w-full' src={imageURL} alt="Shoes" /></figure>
                 <div className="px-2 py-1">
