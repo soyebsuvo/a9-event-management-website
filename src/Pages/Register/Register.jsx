@@ -1,10 +1,30 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 
 export default function Register() {
+    const navigate = useNavigate();
+    const { createUser } = useContext(AuthContext);
+    const handleRegister = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const name = form.get("name");
+        const email = form.get("email");
+        const password = form.get("password");
+        console.log(name, email, password);
+        createUser(email , password)
+        .then(result => {
+            console.log(result.user);
+            navigate("/");
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
     return (
         <div className="flex justify-center py-8">
             <div className="shadow-lg bg-base-200 p-5 w-96 mx-auto text-center">
@@ -19,7 +39,7 @@ export default function Register() {
                     </div>
                     <div className="divider">OR</div>
                     <div className="">
-                        <form>
+                        <form onSubmit={handleRegister}>
                             <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="text" name="name" id="name" placeholder="Full Name" required />
                             <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="email" name="email" id="email" placeholder="Email Address" required />
                             <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="password" name="password" id="password" placeholder="Password" required />
