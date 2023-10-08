@@ -15,11 +15,18 @@ export default function ServiceDetails() {
     <div className="px-24 py-16">
       <div className="hero min-h-screen">
         <div className="">
+          <div className="relative">
           <img src={service?.imageURL} className="w-full rounded-lg" />
+          <div className="absolute bottom-0 w-full">
+            <h2 className="py-4 text-2xl bg-gray-600 bg-opacity-60 text-[#FCB41E] font-extrabold px-6">Package Cost ${service?.price}</h2>
+          </div>
+          </div>
           <div>
-            <h1 className="text-5xl font-bold">{service?.service_name}</h1>
-            <p className="py-6">{service?.details}</p>
-            <button className="btn btn-primary">Get Started</button>
+            <div className="flex justify-between items-center">
+            <h1 className="text-5xl font-bold py-5">{service?.service_name}</h1>
+            <button className="btn px-3 hover:text-[#FCB41E] hover:border-[#FCB41E] hover:bg-transparent py-1 md:px-8 md:py-3 border-2 border-[#FCB41E] bg-[#FCB41E] text-white mr-2">Purchase</button>
+            </div>
+            <p className="">{service?.details}</p>
           </div>
         </div>
       </div>
