@@ -1,8 +1,10 @@
-# React + Vite
+# Event Management (Social Events)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Site Link : [Social Events](https://event-management-assignm-e79f0.web.app/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## The Project Features
+- From this website, a person can easily hire us to organize any of his/her events.
+- One can easily buy any event management system according to his budget.
+- People can easily become our customers through login or registration on our website.
+- People can come to our website, find our location and directly come to our branch to become our customer.
+- Anyone can contact us through this website. Here are our email, phone number and various other means of communication.

@@ -27,8 +27,7 @@ export default function Register() {
             return;
         }
         createUser(email, password)
-            .then(result => {
-                console.log(result.user);
+            .then(() => {
                 navigate("/");
                 toast.success("successfuly Registered")
                 update(name , photo)
