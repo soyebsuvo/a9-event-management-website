@@ -1,8 +1,13 @@
 /* eslint-disable react/no-unknown-property */
 
+import { Helmet } from "react-helmet-async";
+
 export default function Location() {
     return (
         <div className="md:px-24 py-12">
+            <Helmet>
+                <title>Social Events | Location</title>
+            </Helmet>
             <div>
                 <h2 className="text-4xl font-bold text-center">Location</h2>
                 <div>

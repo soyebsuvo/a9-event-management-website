@@ -1,8 +1,12 @@
+import { Helmet } from 'react-helmet-async'
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs'
 
 export default function About() {
     return (
         <div className='py-6'>
+            <Helmet>
+                <title>Social Events | Out Staff</title>
+            </Helmet>
             <div data-aos="fade-down"
                 data-aos-easing="linear"
                 data-aos-duration="700"

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Helmet } from "react-helmet-async";
 import { useLocation, useParams } from "react-router-dom";
 
 export default function ServiceDetails() {
@@ -14,6 +15,9 @@ export default function ServiceDetails() {
   console.log(location)
   return (
     <div className=" px-2 md:px-24 py-16">
+      <Helmet>
+        <title>Social Events | Servie Details</title>
+      </Helmet>
       <div className="hero min-h-screen">
         <div className="">
           <div className="relative">

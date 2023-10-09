@@ -5,6 +5,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 export default function Login() {
     const location = useLocation();
     console.log(location)
@@ -43,6 +44,9 @@ export default function Login() {
   
     return (
         <div className="flex justify-center py-8">
+            <Helmet>
+                <title>Social Events | Login</title>
+            </Helmet>
             <div className="shadow-lg bg-base-200 p-5 w-96 mx-auto">
                 <div className="flex flex-col w-full border-opacity-50">
                     <div className="grid card rounded-box place-items-center">

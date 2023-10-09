@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -50,6 +51,9 @@ export default function Register() {
     }
     return (
         <div className="flex justify-center py-8">
+            <Helmet>
+                <title>Social Events | Register</title>
+            </Helmet>
             <div className="shadow-lg bg-base-200 p-5 w-96 mx-auto text-center">
                 <div className="flex flex-col w-full border-opacity-50">
                     <div className="">
