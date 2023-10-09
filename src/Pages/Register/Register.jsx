@@ -10,11 +10,12 @@ import toast from "react-hot-toast";
 
 export default function Register() {
     const navigate = useNavigate();
-    const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const { createUser, googleSignIn, githubSignIn , update} = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const name = form.get("name");
+        const photo = form.get("photo");
         const email = form.get("email");
         const password = form.get("password");
         if (password.length < 6) {
@@ -25,12 +26,14 @@ export default function Register() {
             toast.error("Your password must contain at least one uppercase letter and one special character");
             return;
         }
-        console.log(name, email, password);
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 navigate("/");
                 toast.success("successfuly Registered")
+                update(name , photo)
+                .then()
+                .catch()
             })
             .catch(() => {
                 toast.error("something went wrong. Please try again")
@@ -62,6 +65,7 @@ export default function Register() {
                     <div className="">
                         <form onSubmit={handleRegister}>
                             <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="text" name="name" id="name" placeholder="Full Name" required />
+                            <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="text" name="photo" id="photo" placeholder="Photo URL" />
                             <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="email" name="email" id="email" placeholder="Email Address" required />
                             <input className="outline-none border-b-2 block bg-base-200 border-gray-300 py-4 w-full" type="password" name="password" id="password" placeholder="Password" required />
                             <div className="mt-4">

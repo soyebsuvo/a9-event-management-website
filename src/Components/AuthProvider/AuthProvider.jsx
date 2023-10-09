@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import PropTypes from 'prop-types';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -42,9 +42,15 @@ export default function AuthProvider({ children }) {
         return () => {
             unSubscribe();
         }
-    }, [])
+    }, []);
 
-    const authInfo = { user, loading , createUser, login, logout, googleSignIn, githubSignIn }
+    const update = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
+    }
+
+    const authInfo = { user, loading, createUser, login, logout, googleSignIn, githubSignIn , update}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
