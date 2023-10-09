@@ -9,3 +9,6 @@ nav a.active{
 nav a:hover{
     background: none !important;
 }
+.logout{
+    background: none !important;
+}

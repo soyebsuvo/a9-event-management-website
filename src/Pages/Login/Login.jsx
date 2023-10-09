@@ -28,7 +28,7 @@ export default function Login() {
             })
             .catch(err => {
                 console.error(err);
-                toast.error("Email Or Password Maybe Incorrect");
+                toast.error("Email Or Password doesn't match");
             })
     }
     const otherSignIn = media => {

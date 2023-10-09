@@ -33,7 +33,7 @@ export default function Footer() {
                     </label>
                     <div className="relative">
                         <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
-                        <button className="btn bg-[#FCB41E] text-white absolute top-0 right-0 rounded-l-none">Subscribe</button>
+                        <button onClick={e => e.preventDefault()} className="btn bg-[#FCB41E] text-white absolute top-0 right-0 rounded-l-none">Subscribe</button>
                     </div>
                 </fieldset>
             </form>

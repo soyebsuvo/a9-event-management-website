@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable react/no-unescaped-entities */
 
 import { useContext } from "react";
@@ -9,27 +10,41 @@ import toast from "react-hot-toast";
 
 export default function Register() {
     const navigate = useNavigate();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const name = form.get("name");
         const email = form.get("email");
         const password = form.get("password");
-        if(password.length < 6) {
+        if (password.length < 6) {
             toast.error("Your Password Must be at least 6 Charectors");
+            return;
+        }
+        if (/^(?![A-Z])(?![!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[\w\d]*$/.test(password)) {
+            toast.error("Your password must contain at least one uppercase letter and one special character");
+            return;
         }
         console.log(name, email, password);
-        createUser(email , password)
-        .then(result => {
-            console.log(result.user);
-            navigate("/");
-            toast.success("successfuly Registered")
-        })
-        .catch(error => {
-            console.error(error);
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                navigate("/");
+                toast.success("successfuly Registered")
+            })
+            .catch(() => {
+                toast.error("something went wrong. Please try again")
+            })
+    }
 
-        })
+    const otherSignIn = media => {
+        media()
+            .then((res) => {
+                console.log(res.user);
+                navigate(location?.state ? location.state : "/")
+                toast.success("successfuly logged in");
+            })
+            .catch()
     }
     return (
         <div className="flex justify-center py-8">
@@ -39,8 +54,8 @@ export default function Register() {
                         <h2 className="text-2xl font-semibold py-3">Create a new account</h2>
 
                         <div className="flex justify-center gap-6 items-center py-4">
-                            <button className="px-4 py-2 rounded-lg"><FcGoogle className='text-3xl'></FcGoogle></button>
-                            <button className=" px-4 py-2 rounded-lg"><FaGithub className='text-3xl '></FaGithub></button>
+                            <button onClick={() => otherSignIn(googleSignIn)} className="px-4 py-2 rounded-lg"><FcGoogle className='text-3xl'></FcGoogle></button>
+                            <button onClick={() => otherSignIn(githubSignIn)} className=" px-4 py-2 rounded-lg"><FaGithub className='text-3xl '></FaGithub></button>
                         </div>
                     </div>
                     <div className="divider">OR</div>
