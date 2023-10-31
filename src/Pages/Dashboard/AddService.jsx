@@ -1,3 +1,5 @@
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function AddService() {
     const handleAddService = (e) => {
@@ -6,6 +8,22 @@ export default function AddService() {
         const photo = e.target.photo.value;
         const price = e.target.price.value;
         const desc = e.target.desc.value;
+        const service = {
+            service_name : name ,
+            imageURL:  photo , 
+            price , 
+            details : desc
+        }
+        // console.log(service)
+        console.log(service)
+        axios.post(`http://localhost:5000/services` , service)
+        .then(res => {
+            console.log(res.data)
+            if(res.data.acknowledged){
+                Swal.fire('Done', 'Successfully Added Service!', 'success')
+            }
+
+        })
     }
   return (
     <div>

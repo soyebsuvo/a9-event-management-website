@@ -22,7 +22,7 @@ export default function Services() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 p-12">
                 {
-                    services?.map(service => <Service key={service.id} service={service}></Service>)
+                    services?.map(service => <Service key={service._id} service={service}></Service>)
                 }
             </div>
         </div>
