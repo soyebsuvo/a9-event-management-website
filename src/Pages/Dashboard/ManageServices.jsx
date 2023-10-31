@@ -3,7 +3,7 @@ import axios from "axios"
 import ManageService from "./ManageService";
 
 export default function ManageServices() {
-    const { data : services, isLoading , error , isError , refetch} = useQuery({
+    const { data : services, isPending , error , isError , refetch} = useQuery({
         queryKey: ["services"],
         queryFn: async () => {
             const res = await axios.get(`http://localhost:5000/services`);
@@ -12,7 +12,7 @@ export default function ManageServices() {
     })
     // console.log(data)
 
-    if(isLoading){
+    if(isPending){
         <h2 className="text-4xl">Loading...</h2>
     }
     if(isError){
@@ -20,10 +20,10 @@ export default function ManageServices() {
     }
     return (
         <div>
-            <h2 className="p-2 font-bold m-2 text-3xl">Manage Services</h2>
+            <h2 className="p-2 font-bold m-2 text-3xl">Manage This {services?.length} Services</h2>
             <div>
                 {
-                    services?.map(service => <ManageService key={service._id} service={service}></ManageService>)
+                    services?.map(service => <ManageService key={service._id} refetch={refetch} service={service}></ManageService>)
                 }
             </div>
         </div>

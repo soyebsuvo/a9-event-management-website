@@ -18,7 +18,7 @@ export default function Service({ service }) {
                     <h2 className="card-title mb-3">{service_name}</h2>
                     {/* <p className='mb-12'>{details.length > 100 ?  : details}</p> */}
                     {
-                        details.length > 100 ? <p className='mb-10 text-gray-500'>{details.slice(0, 100)}...</p> :
+                        details?.length > 100 ? <p className='mb-10 text-gray-500'>{details.slice(0, 100)}...</p> :
                             <p className='mb-10 text-gray-500'>{details}</p>
                     }
                     <div className="card-actions justify-end absolute -bottom-4 left-28">

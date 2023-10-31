@@ -10,9 +10,11 @@ export default function Dashboard() {
       <main className="grid lg:grid-cols-12 px-16 py-6">
         <div className="menu-section lg:col-span-2">
             <nav className="flex flex-col w-full p-4">
-                <NavLink className="p-2" to="/dashboard">Home</NavLink>
-                <NavLink className="p-2" to="/dashboard/add-service">Add Service</NavLink>
-                <NavLink className="p-2" to="/dashboard/manage-service">Manage Service</NavLink>
+                <NavLink className="p-2 hover:underline" to="/dashboard">Home</NavLink>
+                <NavLink className="p-2 hover:underline" to="/dashboard/add-service">Add Service</NavLink>
+                <NavLink className="p-2 hover:underline" to="/dashboard/manage-service">Manage Service</NavLink>
+                <NavLink className="p-2 hover:underline" to="/dashboard/add-testimonial">Add Testimonial</NavLink>
+                <NavLink className="p-2 hover:underline" to="/dashboard/manage-testimonial">Manage Testimonial</NavLink>
             </nav>
         </div>
         <div className="main-section lg:col-span-10 border-l-2 border-[#FCB41E] my-3">

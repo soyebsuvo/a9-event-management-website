@@ -13,6 +13,9 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import AddService from "../Pages/Dashboard/AddService";
 import ManageServices from "../Pages/Dashboard/ManageServices";
 import DashboardHome from "../Pages/Dashboard/DashboardHome";
+import UpdateService from "../Pages/Dashboard/UpdateService";
+import AddTestimonial from "../Pages/Dashboard/AddTestimonial";
+import ManageTestimonial from "../Pages/Dashboard/ManageTestimonial";
 
 const router = createBrowserRouter([
     {
@@ -58,20 +61,32 @@ const router = createBrowserRouter([
 
     {
         path : "/dashboard" ,
-        element : <Dashboard></Dashboard>,
+        element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children : [
             {
                 path : "/dashboard",
-                element : <DashboardHome></DashboardHome>
+                element : <PrivateRoute><DashboardHome></DashboardHome></PrivateRoute>
             },
             {
                 path : "/dashboard/add-service",
-                element : <AddService></AddService>
+                element : <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path : "/dashboard/manage-service",
-                element : <ManageServices></ManageServices>
-            }
+                element : <PrivateRoute><ManageServices></ManageServices></PrivateRoute>
+            },
+            {
+                path : '/dashboard/manage-service/update-service/:id',
+                element : <PrivateRoute><UpdateService></UpdateService></PrivateRoute>
+            },
+            {
+                path : '/dashboard/add-testimonial',
+                element : <PrivateRoute><AddTestimonial></AddTestimonial></PrivateRoute>
+            },
+            {
+                path : '/dashboard/manage-testimonial',
+                element : <PrivateRoute><ManageTestimonial></ManageTestimonial></PrivateRoute>
+            },
         ]
     }
 ])
