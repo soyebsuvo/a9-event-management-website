@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import { Helmet } from "react-helmet-async";
-import { useLocation, useParams } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 
 export default function ServiceDetails() {
-  const [services, setServices] = useState([]);
-  useEffect(() => {
-    fetch("/services.json")
-      .then(res => res.json())
-      .then(data => setServices(data))
-  }, [])
-  const params = useParams();
-  const service = services?.find(service => service.id == params.id);
+  const service = useLoaderData();
+  // const [services, setServices] = useState([]);
+  // useEffect(() => {
+  //   fetch("/services.json")
+  //     .then(res => res.json())
+  //     .then(data => setServices(data))
+  // }, [])
+  // const params = useParams();
+  // const service = services?.find(service => service.id == params.id);
   const location = useLocation();
   console.log(location)
   return (

@@ -17,6 +17,7 @@ export default function Navbar() {
         {user && <li className="text-lg"><NavLink to="/staff">Our Staffs</NavLink></li>}
         {user && <li className="text-lg"><NavLink to="/location">Location</NavLink></li>}
         <li className="text-lg"><NavLink to="/services">Services</NavLink></li>
+        <li className="text-lg"><NavLink to="/dashboard">Dashboard</NavLink></li>
         {
             user ? <li className="text-lg font-bold"><span title={user.email} className="font-extrabold logout">
                 <img className="w-10 rounded-full md:ml-20" src={user.photoURL} alt="" /><span className="font-normal mr-4">{user.displayName}</span><span className="hover:underline" onClick={handleLogOut}>Log Out</span>

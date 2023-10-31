@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 export default function Service({ service }) {
-    const { id, service_name, details, imageURL , price} = service;
+    const { _id, service_name, details, imageURL , price} = service;
     return (
         <div className='border border-[#FCB41E] rounded-2xl' data-aos="fade-up"
             data-aos-easing="linear"
@@ -22,7 +22,7 @@ export default function Service({ service }) {
                             <p className='mb-10 text-gray-500'>{details}</p>
                     }
                     <div className="card-actions justify-end absolute -bottom-4 left-28">
-                        <Link to={`service/${id}`}><button className="px-3 py-1 rounded-full bg-[#FCB41E] text-white flex items-center gap-3"><span>Details</span><FaLongArrowAltRight></FaLongArrowAltRight></button></Link>
+                        <Link to={`/service/${_id}`}><button className="px-3 py-1 rounded-full bg-[#FCB41E] text-white flex items-center gap-3"><span>Details</span><FaLongArrowAltRight></FaLongArrowAltRight></button></Link>
                     </div>
                 </div>
             </div>

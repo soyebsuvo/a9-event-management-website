@@ -9,6 +9,10 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import About from "../Pages/About/About";
 import Location from "../Pages/Location/Location";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import AddService from "../Pages/Dashboard/AddService";
+import ManageServices from "../Pages/Dashboard/ManageServices";
+import DashboardHome from "../Pages/Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +30,8 @@ const router = createBrowserRouter([
             },
             {
                 path : "/service/:id",
-                element : <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
+                element : <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+                loader : ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
             },
             {
                 path : "/services/service/:id",
@@ -47,6 +52,25 @@ const router = createBrowserRouter([
             {
                 path : "/location",
                 element : <PrivateRoute><Location></Location></PrivateRoute>
+            }
+        ]
+    },
+
+    {
+        path : "/dashboard" ,
+        element : <Dashboard></Dashboard>,
+        children : [
+            {
+                path : "/dashboard",
+                element : <DashboardHome></DashboardHome>
+            },
+            {
+                path : "/dashboard/add-service",
+                element : <AddService></AddService>
+            },
+            {
+                path : "/dashboard/manage-service",
+                element : <ManageServices></ManageServices>
             }
         ]
     }
